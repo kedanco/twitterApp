@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :tweets
 
+  get 'home',to: 'users#home'
 
   root 'users#index'
   
