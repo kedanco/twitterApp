@@ -1,0 +1,22 @@
+  <script>
+    maxCharacters = 140;
+
+    char = $('textarea').val().length;
+    $('#count').text(maxCharacters-char);
+
+    $('textarea').bind('keyup keydown', function() {
+        var count = $('#count');
+        var characters = $(this).val().length;
+        count.text(maxCharacters - characters);
+
+        if (characters > maxCharacters) {
+            count.addClass('over');
+            $(':input[type="submit"]').prop('disabled', true);
+        } else {
+            $(':input[type="submit"]').prop('disabled', false);
+            count.removeClass('over');
+        }
+
+        
+    });
+  </script>

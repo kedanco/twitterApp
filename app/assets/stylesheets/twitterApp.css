@@ -1,0 +1,141 @@
+
+/*CSS across pages*/
+
+html,body{
+  background-color:#F5F5F5;
+  font-family: sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+  text-align: center;
+}
+
+a.btn, input.btn{
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+}
+
+.pageHeader {
+  text-align: center;
+
+
+
+}
+
+#header{
+  margin: 0px 0px 0px 0px;
+}
+
+.buttons{
+  min-height: 40px;
+}
+
+textarea{
+    resize: vertical;
+    height: 100%;
+    overflow: auto;
+}
+
+button:focus, a:focus{
+  outline: none;
+}
+
+.tweetBtn{
+
+  font-size:16px;
+  color:white;
+  border-radius: 50px;
+  background-color: #4AB3F4;
+  border-color: transparent;
+  padding:8px 20px 8px 20px;
+  font-weight: bold;
+  cursor: pointer;
+
+  
+  a{
+    color:white;
+  }
+
+}
+
+.tweetBtn:hover, .tweetBtn:active{
+    color:white;
+    background-color: #1DA1F2;
+
+  }
+
+a:hover{
+  text-decoration: none;
+}
+
+/*end of across pages */
+
+/*CSS for User Show Page*/
+
+
+#timeAgo{
+  font-size: 14px;
+  padding-left: 30px;
+}
+
+#pageBody{
+  margin-top: 30px;
+}
+
+#displayTweets{
+  min-width: 500px;
+  margin-top: 30px;
+
+  .panel-heading{
+
+    .panel-title{
+      display:inline;
+      padding-right: 0px;
+      padding-left: 0px;
+
+    }
+    h3{
+      vertical-align: bottom;
+      padding-top: 5px;
+      margin-top: 10px;
+      text-align: left;
+    }
+    #icons{
+      font-size: 14px;
+      display:inline-block;
+      
+    }
+    #icons a{
+      cursor:pointer;
+      padding:0px 5px 0px 5px;
+      vertical-align: center;
+    }
+
+  }
+
+  .panel-heading.row{
+    margin-right: 0px;
+    margin-left: 0px;
+    padding:0px;
+  }
+
+  .panel-body{
+    overflow-wrap: normal;
+    word-wrap: break-word;
+  }
+}
+
+
+
+
+/*End of User Show Page*/
+
+
+/*New Tweet Page*/
+
+.over{
+  color:red;
+}
+
+
+/*End of New Tweet Page*/
