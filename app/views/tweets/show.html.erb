@@ -1,0 +1,17 @@
+<h1> tweet showpage</h1>
+
+<%= @tweet.text %>
+
+
+<% if @comments!=nil %>
+  <h2><%= @comments.size %> Comment(s) </h2>
+      <% @comments.each do |comment| %>
+        <%= render comment %>
+        <% end %>
+<% else %>
+         <p>There are no comments.</p>
+<% end %>
+
+       <div id="commentForm">
+
+       </div>

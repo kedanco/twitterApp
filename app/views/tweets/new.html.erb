@@ -1,0 +1,35 @@
+ 
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+       <h1>New Tweet</h1>
+       
+       <%= form_for @tweet, url:tweets_path(id: current_user.id), method: :post do |f| %>
+
+      <div class="form-group">
+        <%= f.label   :tweet , class: "control-label col-sm-2"%>
+        <div class="col-sm-8 col-sm-offset-2"><%= f.text_area :text , class: "form-control"  %></div>
+      </div>
+
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <div class="buttons">
+
+      <%= link_to 'Back', user_path(id: current_user.id), class: "btn btn-primary pull-left" %><br>  
+
+      <%= f.submit "Create" , class: "btn btn-success pull-right" %>
+        
+      </div>
+
+      <% end %>
+
+  </div>
+</div>
+
+<%= render 'layouts/textarea' %>
+
+  <script>
+
+        var form = document.getElementById("new_tweet");
+        form.className += " form-horizontal";
+
+  </script>

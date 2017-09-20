@@ -1,0 +1,8 @@
+<%= form_for @comment, url: tweet_comments_path(tweet_id: @tweet.id)  do |f| %>
+
+
+
+  <%= f.text_area :content %>
+  <%= f.submit %>
+
+  <% end %>
