@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
 
+<<<<<<< HEAD
   resources :tweets do
     resources :comments 
   end
@@ -12,4 +13,12 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+=======
+  resources :tweets
+  
+  get 'home',to: 'users#home'
+
+  root 'users#show'
+  
+>>>>>>> fcdcc9000a873a916d0f0c52c310e1103c0036c8
 end
