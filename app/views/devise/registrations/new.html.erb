@@ -1,7 +1,24 @@
-<h2>Sign up</h2>
+
+<div id="titleHeader" class="row sign" align="center">
+
+    <h1> Welcome To Your Twitter App!  </h1>
+
+</div>
+
+<div class="row signform" align="center">
+    <div class="loginForm" class="well">
+
+
+<h2>Hi New User! Sign up here!</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
