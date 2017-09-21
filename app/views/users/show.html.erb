@@ -23,9 +23,10 @@
 
 
 
+    
     <%= link_to home_path do %><i class="fa fa-home fa-3x" aria-hidden="true"></i> <% end %>
 
-    <%= link_to new_tweet_path do %><button class="buttons tweetBtn"> Tweet </button><% end %> 
+    <%= link_to new_tweet_path do %><button class="buttons tweetBtn"> Tweet </button><% end %>
 
     <% end %>
 
@@ -44,40 +45,40 @@
 
       <% if !(@tweets.empty?) %>
         <% @tweets.each do |tweet| %>
-           
+
               <div class="tweet panel panel-info">
-               
-                
+
+
                 <div class="panel-heading row">
 
-                 
+
                   <div class="panel-title">
                     <h3 class="col-sm-12">
                       <%= link_to tweet_path(id:tweet.id) do %> <span id="name"><%= @user.name %></span>   <% end %>
-                      <span id="timeAgo"> 
+                      <span id="timeAgo">
                         <!-- If user updated tweet, displays updated_at time instead. -->
                           <%= (tweet.updated_at > tweet.created_at) ? time_ago_in_words(tweet.updated_at) : time_ago_in_words(tweet.created_at)  %>
-                           ago 
-                          
-                      </span> 
+                           ago
+
+                      </span>
                       <span id="icons" class="pull-right">
                         <%= link_to edit_tweet_path(id: tweet.id) do %><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i> <% end %>
-                          <%= link_to tweet_path(id: tweet.id), method: :delete do %><i class="fa fa-trash fa-2x" aria-hidden="true"></i> <% end %> 
+                          <%= link_to tweet_path(id: tweet.id), method: :delete do %><i class="fa fa-trash fa-2x" aria-hidden="true"></i> <% end %>
                       </span>
                     </h3>
-                    
+
                   </div>
-                 
+
                 </div>
-             
-              
+
+
                 <div class="panel-body">
                   <p> <%= tweet.text %> </p>
 
                 </div>
 
               </div>
-            
+
         <% end %>
       <% else %>
           <div class="tweet">
