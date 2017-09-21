@@ -101,7 +101,9 @@ a:hover{
       text-align: left;
     }
     #icons{
-      font-size: 14px;
+       
+        font-size: 14px !important;
+      
       display:inline-block;
       
     }

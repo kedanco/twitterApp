@@ -7,23 +7,16 @@
 
       <div class="form-group">
         <%= f.label   :tweet , class: "control-label col-sm-2"%>
-<<<<<<< HEAD
-        <div class="col-sm-8 col-sm-offset-2"><%= f.text_area :text , class: "form-control"  %></div>
-=======
+
         <div class="col-sm-8 col-sm-offset-2"><%= f.text_area :text, class: "form-control"  %><p>You have <span id="count"> </span> characters remaining </p></div>
         
->>>>>>> fcdcc9000a873a916d0f0c52c310e1103c0036c8
       </div>
 
       <%= f.hidden_field :user_id, :value => current_user.id %>
 
       <div class="buttons">
 
-<<<<<<< HEAD
       <%= link_to 'Back', user_path(id: current_user.id), class: "btn btn-primary pull-left" %><br>  
-=======
-      <%= link_to 'Back', user_path(id: current_user.id), class: "btn btn-primary pull-left" %> 
->>>>>>> fcdcc9000a873a916d0f0c52c310e1103c0036c8
 
       <%= f.submit "Create" , class: "btn btn-success pull-right" %>
         
@@ -36,14 +29,7 @@
 
 <%= render 'layouts/textarea' %>
 
-<<<<<<< HEAD
-  <script>
 
-        var form = document.getElementById("new_tweet");
-        form.className += " form-horizontal";
-
-  </script>
-=======
   <!-- form css -->
   <script>
     var form = document.getElementsByTagName("form");
@@ -51,4 +37,4 @@
   </script>
 
 <%= render "tweets/checktweet" %>
->>>>>>> fcdcc9000a873a916d0f0c52c310e1103c0036c8
+

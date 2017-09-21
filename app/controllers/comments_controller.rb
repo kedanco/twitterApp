@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
 
     def destroy
       @comment.destroy
-      redirect_to user_path(@tweet)
+      redirect_to tweet_path(@tweet)
     end
 
   def edit
@@ -26,8 +26,8 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(params[:content].permit(content))
-      redirect_to user_path(@tweet)
+    if @comment.update(params[:comment].permit(:content))
+      redirect_to tweet_path(@tweet)
     else
       render 'edit'
     end
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
   #end
 
   def find_comment
-    @comment = @tweet.comments.find(params[:id])
+    @comment = @tweet.comments.find(params[:id]) 
   end
 
   def comment_owner

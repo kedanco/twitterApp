@@ -1,10 +1,14 @@
 <h1> tweet showpage</h1>
 
-<%= @tweet.text %>
+<%= link_to 'Back', user_path(id: @tweet.user_id), class: "btn btn-primary" %><br>  
 
+<%= @tweet.text %>
+<h3> This tweet has <%= pluralize(@comments.count, "replies") %></h3>
+
+<div class="pageBody">
 
 <% if @comments!=nil %>
-  <h2><%= @comments.size %> Comment(s) </h2>
+ 
       <% @comments.each do |comment| %>
         <%= render comment %>
         <% end %>
@@ -13,5 +17,8 @@
 <% end %>
 
        <div id="commentForm">
-
+          <%= render 'comments/form' %>
        </div>
+
+
+</div>

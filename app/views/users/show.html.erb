@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<h1>User Show Page1234</h1>
 
-
-<h1> tweet showpage</h1>
-<%= render 'comments/form' %>
-=======
 
 <div class="pageHeader">
 
@@ -25,34 +19,40 @@
 
       <% if !(@tweets.empty?) %>
         <% @tweets.each do |tweet| %>
-          <div class="tweet panel panel-info">
-            
-            <div class="panel-heading row">
-
-            
-              <div class="panel-title">
-                <h3 class="col-sm-12">
-                  <span id="name"><%= @user.name %></span>
-                  <span id="timeAgo"> 
-                    <!-- If user updated tweet, displays updated_at time instead. -->
-                      <%= (tweet.updated_at > tweet.created_at) ? time_ago_in_words(tweet.updated_at) : time_ago_in_words(tweet.created_at)  %>
-                       ago 
-                      
-                  </span> 
-                  <span id="icons" class="pull-right">
-                    <%= link_to edit_tweet_path(id: tweet.id) do %><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i> <% end %>
-                      <%= link_to tweet_path(id: tweet.id), method: :delete do %><i class="fa fa-trash fa-2x" aria-hidden="true"></i> <% end %> 
-                  </span>
-                </h3>
+           
+              <div class="tweet panel panel-info">
+               
                 
-              </div>
-              
-          </div>
-          <div class="panel-body">
-            <p> <%= tweet.text %> </p>
+                <div class="panel-heading row">
 
-          </div>
-        </div>
+                 
+                  <div class="panel-title">
+                    <h3 class="col-sm-12">
+                      <%= link_to tweet_path(id:tweet.id) do %> <span id="name"><%= @user.name %></span>   <% end %>
+                      <span id="timeAgo"> 
+                        <!-- If user updated tweet, displays updated_at time instead. -->
+                          <%= (tweet.updated_at > tweet.created_at) ? time_ago_in_words(tweet.updated_at) : time_ago_in_words(tweet.created_at)  %>
+                           ago 
+                          
+                      </span> 
+                      <span id="icons" class="pull-right">
+                        <%= link_to edit_tweet_path(id: tweet.id) do %><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i> <% end %>
+                          <%= link_to tweet_path(id: tweet.id), method: :delete do %><i class="fa fa-trash fa-2x" aria-hidden="true"></i> <% end %> 
+                      </span>
+                    </h3>
+                    
+                  </div>
+                 
+                </div>
+             
+              
+                <div class="panel-body">
+                  <p> <%= tweet.text %> </p>
+
+                </div>
+
+              </div>
+            
         <% end %>
       <% else %>
           <div class="tweet">
@@ -65,4 +65,4 @@
 
 </div>
 </div>
->>>>>>> fcdcc9000a873a916d0f0c52c310e1103c0036c8
+
