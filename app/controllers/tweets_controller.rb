@@ -2,6 +2,8 @@ class TweetsController < ApplicationController
 
   def home
 
+
+
   end
 
   def index
@@ -11,7 +13,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments.order("created_at DESC")
     @comment = Comment.new
-    
+
   end
 
   def new
