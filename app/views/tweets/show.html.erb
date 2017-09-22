@@ -1,14 +1,28 @@
 <h1> tweet showpage</h1>
 
-<%= link_to 'Back', user_path(id: @tweet.user_id), class: "btn btn-primary" %><br>  
+<%= link_to 'Back', user_path(id: @tweet.user_id), class: "btn btn-primary" %><br>
 
 <%= @tweet.text %>
-<h3> This tweet has <%= pluralize(@comments.count, "replies") %></h3>
+<p></p>
+<p>
+<%= link_to like_tweet_path(@tweet), method: :get do %>
+  <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> <% end %>
+</p>
 
+<p>
+  <%= pluralize(@tweet.get_upvotes.size,  "likes") %>
+
+
+</p>
+<p>
+<!--%= #link_to "like", like_tweet_path(@tweet), method: :get %-->
+<%= link_to "dislike", dislike_tweet_path(@tweet), method: :get %>
+</p>
+<h3> This tweet has <%= pluralize(@comments.count, "replies") %></h3>
 <div class="pageBody">
 
 <% if @comments!=nil %>
- 
+
       <% @comments.each do |comment| %>
         <%= render comment %>
         <% end %>
@@ -22,5 +36,3 @@
 
 
 </div>
-
-
