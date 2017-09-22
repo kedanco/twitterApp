@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :users
 
   resources :tweets do
-
-    resources :comments 
+    member do
+      get "like", to: "tweets#upvote"
+      get "dislike", to: "tweets#downvote"
+    end
+    resources :comments
 
   end
 

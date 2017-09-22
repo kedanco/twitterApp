@@ -58,5 +58,17 @@ class TweetsController < ApplicationController
     flash[:success] = "Tweet deleted!"
     redirect_to user_path(user)
   end
+  def upvote
+    @tweet = Tweet.find(params[:id])
+    @tweet.upvote_by current_user
+    redirect_back(fallback_location: tweet_path(@tweet))
 
+  end
+
+  def downvote
+    @tweet = Tweet.find(params[:id])
+    @tweet.downvote_by current_user
+    redirect_back(fallback_location: tweet_path(@tweet))
+  end
+  
 end
