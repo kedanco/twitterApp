@@ -8,4 +8,6 @@ class User < ApplicationRecord
          has_many :comments, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader 
+
+  acts_as_voter
 end
