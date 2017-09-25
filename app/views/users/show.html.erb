@@ -4,6 +4,8 @@
 <div class="pageHeader">
 
     <h1><%= @user.name %></h1>
+    <h4>Followers: <%= current_user.followers.count %><h4>
+      <%= render'/components/follow_button', :user => User.find_by_name(params[:id]) %>
     <% if !@avatar.blank? %>
        <%=  image_tag @avatar.thumb, class: "img-circle"%>
     <% else %>
@@ -45,6 +47,39 @@
 
       <% if !(@tweets.empty?) %>
         <% @tweets.each do |tweet| %>
+
+              <div class="tweet panel panel-info">
+
+
+                <div class="panel-heading row">
+
+
+                  <div class="panel-title">
+                    <h3 class="col-sm-12">
+                      <%= link_to tweet_path(id:tweet.id) do %> <span id="name"><%= @user.name %></span>   <% end %>
+                      <span id="timeAgo">
+                        <!-- If user updated tweet, displays updated_at time instead. -->
+                          <%= (tweet.updated_at > tweet.created_at) ? time_ago_in_words(tweet.updated_at) : time_ago_in_words(tweet.created_at)  %>
+                           ago
+
+                      </span>
+                      <span id="icons" class="pull-right">
+                        <%= link_to edit_tweet_path(id: tweet.id) do %><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i> <% end %>
+                          <%= link_to tweet_path(id: tweet.id), method: :delete do %><i class="fa fa-trash fa-2x" aria-hidden="true"></i> <% end %>
+                      </span>
+                    </h3>
+
+                  </div>
+
+                </div>
+
+
+                <div class="panel-body">
+                  <p> <%= tweet.text %> </p>
+
+                </div>
+
+              </div>
 
           <%= render tweet %>
 
