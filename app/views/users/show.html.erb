@@ -23,14 +23,14 @@
       </div>
     <%= f.submit "Upload" , class: "btn btn-success pull-right" %>
 
-
+    <% end %>
 
 
     <%= link_to home_path do %><i class="fa fa-home fa-3x" aria-hidden="true"></i> <% end %>
 
     <%= link_to new_tweet_path do %><button class="buttons tweetBtn"> Tweet </button><% end %>
 
-    <% end %>
+    
 
 </div>
 
@@ -80,6 +80,8 @@
                 </div>
 
               </div>
+
+          <%= render tweet %>
 
         <% end %>
       <% else %>

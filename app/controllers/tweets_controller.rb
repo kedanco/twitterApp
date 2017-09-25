@@ -13,6 +13,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments.order("created_at DESC")
     @comment = Comment.new
+    @user = User.find(@tweet.user_id)
 
   end
 
@@ -58,17 +59,30 @@ class TweetsController < ApplicationController
     flash[:success] = "Tweet deleted!"
     redirect_to user_path(user)
   end
-  def upvote
+
+  # standardise all our terms as 'Like' or 'Unlike' (Unlike is different from Dislike - Dislike is a negative like, unlike removes like)
+  # only change in terminology, no change in how it works
+
+
+  def like
     @tweet = Tweet.find(params[:id])
-    @tweet.upvote_by current_user
-    redirect_back(fallback_location: tweet_path(@tweet))
+    @tweet.liked_by current_user
+  
+    respond_to do |format|
+      format.html
+      format.js { render :file => "users/like.js.erb" } 
+    end
 
   end
 
-  def downvote
+  def unlike
     @tweet = Tweet.find(params[:id])
-    @tweet.downvote_by current_user
-    redirect_back(fallback_location: tweet_path(@tweet))
+    @tweet.unliked_by current_user
+    
+    respond_to do |format|
+      format.html
+      format.js { render :file => "users/unlike.js.erb" }
+    end
   end
   
 end

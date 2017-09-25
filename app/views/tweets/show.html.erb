@@ -1,38 +1,35 @@
-<h1> tweet showpage</h1>
+<div class="row">
 
-<%= link_to 'Back', user_path(id: @tweet.user_id), class: "btn btn-primary" %><br>
+  <div class="pageHeader">
 
-<%= @tweet.text %>
-<p></p>
-<p>
-<%= link_to like_tweet_path(@tweet), method: :get do %>
-  <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> <% end %>
-</p>
+    <h1> tweet showpage</h1>
 
-<p>
-  <%= pluralize(@tweet.get_upvotes.size,  "likes") %>
+    <%= link_to 'Back', user_path(id: @tweet.user_id), class: "btn btn-primary" %><br>
+    
+  </div>
 
+  <div class="pageBody col-md-4 col-md-offset-4">
 
-</p>
-<p>
-<!--%= #link_to "like", like_tweet_path(@tweet), method: :get %-->
-<%= link_to "dislike", dislike_tweet_path(@tweet), method: :get %>
-</p>
-<h3> This tweet has <%= pluralize(@comments.count, "replies") %></h3>
-<div class="pageBody">
+      <div id="displayTweets">
 
-<% if @comments!=nil %>
+      <%= render @tweet %>
 
-      <% @comments.each do |comment| %>
-        <%= render comment %>
+      <h3> This tweet has <%= pluralize(@comments.count, "replies") %></h3>
+
+      <% if @comments!=nil %>
+        <% @comments.each do |comment| %>
+          <%= render comment %>
         <% end %>
-<% else %>
-         <p>There are no comments.</p>
-<% end %>
+      <% else %>
+        <p>There are no comments.</p>
+      <% end %>
 
-       <div id="commentForm">
-          <%= render 'comments/form' %>
-       </div>
+      <div id="commentForm">
+         <%= render 'comments/form' %>
+      </div>
 
+      </div>
+
+  </div>
 
 </div>

@@ -1,0 +1,5 @@
+
+    console.log('unliked');
+    $('#like_unlike_'+<%=@tweet.id%>).html(' <%= link_to like_tweet_path(id: @tweet.id), remote: true, class: "like" do %><i class="fa fa-heart-o fa-2x" aria-hidden="true"></i> <% end %>')
+    $('#likeCount_'+ <%=@tweet.id%>).html(<%=@tweet.get_likes.size%>);
+    
