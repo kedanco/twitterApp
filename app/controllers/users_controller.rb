@@ -3,13 +3,19 @@ class UsersController < ApplicationController
   before_action :getUser
 
   def home
+    @allTweets = []
+      @following = Relationship.where(follower_id: @user.id).find_each do |rship|
+          user = User.find(rship.followed_id)
+          @allTweets << user.tweets.all.order("updated_at DESC")
+      end
   end
 
   def index
+    @others = User.where.not(id: current_user.id)
   end
 
   def show
-    @tweets = @user.tweets.all
+    @tweets = @user.tweets.all.order("updated_at DESC")
     @avatar = @user.avatar
 
   end

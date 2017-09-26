@@ -1,6 +1,11 @@
 <% if user_signed_in? %>
 
-<h1> Hi there</h1>
+<h1> Other users</h1>
 
+<% @others.each do |others| %>
+<div class="well well-lg">
+<h3><%= link_to others.name.upcase, user_path(id: others.id) %></h3>
+</div>
+<% end %>
 
 <% end %>

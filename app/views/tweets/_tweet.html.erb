@@ -3,6 +3,7 @@
     <div class="panel-heading row">
       <div class="panel-title">
         <h3 class="col-sm-12">
+          <% @user = User.find(tweet.user_id) %>
           <%= link_to tweet_path(id:tweet.id) do %> <span id="name"><%= @user.name %></span>   <% end %>
           <span id="timeAgo">
             <!-- If user updated tweet, displays updated_at time instead. -->

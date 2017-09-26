@@ -1,9 +1,35 @@
-<h1> User Homepage123 </h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <div id="pageHeader">
 
 
 
-<%= link_to 'Tweet' ,new_tweet_path(user_id: current_user.id) %>
+      <h1> Tweets from people you follow </h1>
+      <span id="allUsers"><%= link_to "Other Users", users_path %></span>
 
-<%= link_to "Profile", user_path(id: @user.id) %>
+    </div>
+
+    <div class="row">
+
+      <div class="pageBody col-md-4 col-md-offset-4">
+
+        <div id="followingTweets">
+
+          <% if !@allTweets.blank? %>
+           <% @allTweets.each do |tweet| %> 
+
+              <%= render tweet %>
+              <% end %>
+          <% else %>
+            <h3>You don't seem to be following anyone!</h3>
+          <% end %>
 
 
+        </div>
+
+      </div>
+
+    </div>
+
+</div>
