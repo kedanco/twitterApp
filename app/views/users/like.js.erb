@@ -3,6 +3,4 @@
     $('#like_unlike_'+<%=@tweet.id%>).html(' <%= link_to unlike_tweet_path(id: @tweet.id), remote: true, class: "unlike" do %><i class="fa fa-heart fa-2x" aria-hidden="true"></i> <% end %>')
     $('#likeCount_'+ <%=@tweet.id%>).html(<%=@tweet.get_likes.size%>);
     
-
-
-
+  
