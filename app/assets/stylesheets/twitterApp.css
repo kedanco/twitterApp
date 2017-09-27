@@ -40,17 +40,21 @@ button:focus, a:focus{
   outline: none;
 }
 
-.tweetBtn{
-
+.tweetBtn, .signoutBtn, .signupBtn, .loginBtn{
   font-size:16px;
   color:white;
   border-radius: 50px;
-  background-color: #4AB3F4;
   border-color: transparent;
-  padding:8px 20px 8px 20px;
   font-weight: bold;
   cursor: pointer;
 
+}
+
+.tweetBtn{
+
+  background-color: #4AB3F4;
+  
+  padding:3px 20px 3px 20px;
   
   a{
     color:white;
@@ -58,15 +62,64 @@ button:focus, a:focus{
 
 }
 
-.tweetBtn:hover, .tweetBtn:active{
+.signoutBtn{
+  background-color: #47c2e0;
+  padding-right: 14px;
+  padding-left: 14px;
+}
+
+.signupBtn{
+  background-color: #47c2e0;
+}
+
+.loginBtn{
+  background-color: #47c2e0;
+}
+
+
+.navbar-nav > li > a {
+
+  padding: 5px 10px 5px 10px;
+}
+
+.navbar-brand{
+  padding-top: 5px;
+
+  .homeIcon{
+    color: #4AB3F4;
+  }
+}
+
+.homeIcon:hover,.homeIcon:active{
+  color: #1DA1F2 !important;
+}
+
+.navbar-brand > a{
+  color:white;
+  padding: 5px 10px 0px 10px;
+  margin-top: -10px;
+}
+
+.navbar-brand > a:hover{
+  color: lightgrey;
+}
+
+.tweetBtn:hover, .tweetBtn:active,
+.signoutBtn:hover, .signoutBtn:active,
+.loginBtn:hover, .loginBtn:active,
+.signupBtn:hover, .signupBtn:active{
     color:white;
     background-color: #1DA1F2;
 
   }
 
-a:hover{
+a:hover,a:focus{
   text-decoration: none;
 }
+
+/*.homeIcon{
+  padding: 0px 5px 0px 5px;
+}*/
 
 /*end of across pages */
 
@@ -82,7 +135,7 @@ a:hover{
   margin-top: 30px;
 }
 
-#displayTweets{
+#displayTweets, #followingTweets{
   min-width: 500px;
   margin-top: 30px;
 
@@ -139,9 +192,7 @@ a:hover{
   color:red;
 }
 
-
 /*End of New Tweet Page*/
-
 
 
 /*User Login page*/

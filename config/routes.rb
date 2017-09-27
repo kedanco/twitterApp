@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :tweets do
     member do
-      get "like", to: "tweets#upvote"
-      get "dislike", to: "tweets#downvote"
+      get "like", to: "tweets#like"
+      get "unlike", to: "tweets#unlike"
     end
     resources :comments
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get 'home',to: 'users#home'
 
-  root 'users#index'
+  root 'users#home'
 
 
 end
