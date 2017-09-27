@@ -45,8 +45,8 @@
 
           <% if !(@tweets.empty?) %>
             <% @tweets.each do |tweet| %>
-
-               <%= render tweet %>      
+ 
+               <%= render 'tweet', { tweet: tweet } %>
 
             <% end %>
           <% else %>
