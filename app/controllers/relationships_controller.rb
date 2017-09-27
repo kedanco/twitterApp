@@ -5,7 +5,9 @@ class RelationshipsController < ApplicationController
 
     #relationship_params = params[:Relationship]
     #user = User.find(relationship_params[:followed_id])
-    user = User.find_by(params[:followed_id])
+
+
+    user = User.find(params[:followed_id])
     current_user.follow(user)
     redirect_back(fallback_location: user_path(user))
   end

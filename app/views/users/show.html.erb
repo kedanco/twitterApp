@@ -4,8 +4,8 @@
 <div class="pageHeader">
 
     <h1><%= @user.name %></h1>
-    <h4>Followers: <%= current_user.followers.count %><h4>
-      <%= render'/components/follow_button', :user => User.find_by_name(params[:id]) %>
+    <h4>Followers: <%= @user.followers.count %><h4>
+      <%= render'/components/follow_button', :user => User.find(params[:id]) %>
     <% if !@avatar.blank? %>
        <%=  image_tag @avatar.thumb, class: "img-circle"%>
     <% else %>
