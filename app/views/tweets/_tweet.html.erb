@@ -21,8 +21,9 @@
                     <%= link_to like_tweet_path(id: tweet.id), remote: true, class: "like" do %><i class="fa fa-heart-o fa-2x" aria-hidden="true"></i> <% end %>
                 <% end %>
            </span>
-           <span id="likeCount_<%= tweet.id %>"><%= tweet.get_likes.size %></span>
+            <span href="#" id="likeCount_<%= tweet.id %>"><%= tweet.get_likes.size %></span>
           </span>
+          
         </h3>
       </div>
     </div>
@@ -32,3 +33,5 @@
     </div>
 
   </div>
+
+

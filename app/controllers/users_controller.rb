@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def show
     @tweets = @user.tweets.all.order("updated_at DESC")
     @avatar = @user.avatar
+    
 
   end
 
