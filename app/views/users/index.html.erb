@@ -1,11 +1,19 @@
 <% if user_signed_in? %>
 
-<h1> Other users</h1>
+  <h1> Other Users</h1>
 
-<% @others.each do |others| %>
-<div class="well well-lg">
-<h3><%= link_to others.name.upcase, user_path(id: others.id) %></h3>
-</div>
-<% end %>
+  <div class="row">
+
+    <div class="col-md-4 col-md-offset-4">
+
+    <% @others.each do |others| %>
+      <div id="userList" class="well well-lg">
+        <h3><%= link_to others.name.upcase, user_path(id: others.id) %></h3>
+      </div>
+    <% end %>
+
+  </div>
+
+  </div>
 
 <% end %>

@@ -1,16 +1,21 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
 
-<div class="pageHeader">
+    <div class="pageHeader">
 
     <h1><%= @user.name %></h1>
 
-    <h4>Followers: <%= @user.followers.count %><h4>
-      <%= render'/components/follow_button', :user => User.find_by_name(params[:id]) %>
+    <h4>Followers: <%= @user.followers.count %></h4>
+    <% if current_user != @user %>
+      <%= render'/components/follow_button', :user => User.find(params[:id]) %>
+    <% end %>
+
     <% if !@avatar.blank? %>
        <%=  image_tag @avatar.thumb, class: "img-circle"%>
     <% else %>
+      <% if current_user == @user %>
         <h4> you have no Avatar yet! Click here to upload one!</h4>
+      <% end %>
     <% end %>
 
     <!-- Upload photo -->
@@ -24,11 +29,8 @@
             <%= f.submit "Upload" , class: "btn btn-success col-sm-2" %>
         </div>
 
-
-
       <% end %>
     <% end %>
-
 
 </div>
 
@@ -41,27 +43,47 @@
 
         <div id="displayTweets">
 
-
           <% if !(@tweets.empty?) %>
             <% @tweets.each do |tweet| %>
 
-               <%= render tweet %>
+               <%= render 'tweets/tweet', { tweet: tweet } %>
+
 
             <% end %>
           <% else %>
               <div class="tweet">
-                <h4> No tweets yet! Create one now! </h4>
+                <% if current_user == @user %>
+                  <h4> No tweets yet! Create one now! </h4>
+                <% else %>
+                  <h4><%= @user.name %> doesn't have any tweets yet.</h4>
+                <% end %>
               </div>
           <% end %>
 
         </div>
+        <!-- <a href="#" id="testModal">Test</a> -->
 
     </div>
 
 </div>
+
+<%= render 'likedusers' %>
 
   <!-- form css -->
   <script>
     var form = document.getElementsByTagName("form");
     form[0].className += " form-horizontal";
   </script>
+
+<script>
+
+console.log("test");
+
+$("#testModal").click(function(){
+
+  $('#likeModal').modal("show");
+  return false;
+});
+
+
+</script>
