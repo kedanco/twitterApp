@@ -180,7 +180,30 @@ a:hover,a:focus{
   }
 }
 
+#followingTweet{
+  margin:0px auto;
+  max-width: 600px;
 
+}
+
+#userList{
+  
+  max-width: 600px;
+  margin:0px auto;
+  margin-top: 20px;
+  margin-bottom:20px;
+  
+  background-color: lightblue;
+
+  a{
+    /*color:white;*/
+    font-size: 28px;
+  }
+}
+
+#allUsers{
+
+}
 
 
 /*End of User Show Page*/

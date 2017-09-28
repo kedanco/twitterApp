@@ -6,26 +6,27 @@
 
 
       <h1> Tweets from people you follow </h1>
-      <span id="allUsers"><%= link_to "Other Users", users_path %></span>
+      <h4 id="allUsers"><%= link_to "Other Users", users_path %></h4>
 
     </div>
 
     <div class="row">
 
-      <div class="pageBody col-md-4 col-md-offset-4">
+      <div class="pageBody">
 
         <div id="followingTweets">
 
           <% if !@allTweets.blank? %>
            <% @allTweets.each do |tweet| %> 
-
+           <div id="followingTweet">
               <%= render tweet %>
-              <% end %>
+           <% end %>
+
           <% else %>
             <h3>You don't seem to be following anyone!</h3>
           <% end %>
 
-
+            </div>
         </div>
 
       </div>
