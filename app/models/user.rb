@@ -11,7 +11,7 @@ class User < ApplicationRecord
          has_many :following, through: :active_relationships, source: :followed
          has_many :followers, through: :passive_relationships, source: :follower
 
-        
+
 
          def follow(other)
            active_relationships.create(followed_id: other.id)
@@ -25,7 +25,7 @@ class User < ApplicationRecord
            following.include?(other)
          end
 
-  mount_uploader :avatar, AvatarUploader 
+  mount_uploader :avatar, AvatarUploader
 
   acts_as_voter
 

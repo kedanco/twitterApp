@@ -5,10 +5,10 @@
       <center-->
 
         <% if !current_user.following?(user) %>
-          <% @activeNew = current_user.active_relationships.build %>
-          <%= form_for(@activeNew) do |f| %>
-            <div><%= f.hidden_field :followed_id, value: user.id %></div>
-              <%= f.submit "Follow" %>
+
+          <%= form_for(current_user.active_relationships.build) do |f| %>
+            <div><%= hidden_field_tag :followed_id, @user.id %></div>
+            <%= f.submit "Follow" %>
           <%end%>
         <% else %>
             <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
